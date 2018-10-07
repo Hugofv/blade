@@ -3,11 +3,8 @@ package com.squadra.blade.services;
 import com.squadra.blade.entities.Sistema;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ISistemaService {
-
-    List<Sistema> listar();
-    List<Sistema> listarPorFiltro();
+    List<Sistema> listarPorFiltro(String descricao, String sigla, String email);
     Sistema criar(Sistema sistema);
 }

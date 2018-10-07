@@ -9,22 +9,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController("/sistema")
 public class SistemaController {
 
     @Autowired
     SistemaService _sistemaService;
 
-    @GetMapping
-    public ResponseEntity<?> listar() {
-        List<Sistema> sistemas =_sistemaService.listar();
-        return new ResponseEntity(sistemas, HttpStatus.ACCEPTED);
-    }
-
     @GetMapping("/filtro")
-    public ResponseEntity<?> listarPorFiltro(@RequestParam("descricao") String descricao, @RequestParam("sigla") String sigla, @RequestParam("email") String email) {
-        List<Sistema> sistemas = _sistemaService.listarPorFiltro();
-        return new ResponseEntity(sistemas, HttpStatus.ACCEPTED);
+    public ResponseEntity<?> listarPorFiltro(@RequestParam(value = "descricao", defaultValue = "") String descricao,
+                                             @RequestParam(value = "sigla", defaultValue = "") String sigla,
+                                             @RequestParam(value = "email", defaultValue = "") String email) {
+        List<Sistema> sistemas = _sistemaService.listarPorFiltro(descricao, sigla, email);
+        return new ResponseEntity(sistemas, HttpStatus.OK);
     }
 
     @PostMapping

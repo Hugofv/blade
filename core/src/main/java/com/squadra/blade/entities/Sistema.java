@@ -12,36 +12,55 @@ public class Sistema {
     private String descricao;
     private String sigla;
     private String email;
+    private String url;
+    @Column(columnDefinition = "boolean default true", nullable = false)
+    private boolean ativo;
 
-    public String get_sigla() {
-        return sigla;
-    }
-
-    public void set_sigla(String sigla) {
-        this.sigla = sigla;
-    }
-
-    public long get_id() {
+    public long getId() {
         return id;
     }
 
-    public void set_id(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String get_descricao() {
+    public String getDescricao() {
         return descricao;
     }
 
-    public void set_descricao(String descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    public String get_email() {
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    public String getEmail() {
         return email;
     }
 
-    public void set_email(String email) {
+    public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 }
