@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { SistemaComponent } from './sistema/sistema.component';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { 
@@ -12,13 +10,14 @@ import {
   MatInputModule,
   MatButtonModule,
   MatTableModule,
-  MatDialogModule
+  MatDialogModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatSnackBarModule
  } from '@angular/material';
  import { CdkTableModule } from '@angular/cdk/table';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientModule } from '@angular/common/http';
 
-import { SistemaService } from './services/sistema.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './sistema/create/create.component';
 import { RouterModule } from '@angular/router';
@@ -28,7 +27,7 @@ import { ROUTES } from './app.route';
   declarations: [
     AppComponent,
     SistemaComponent,
-    CreateComponent
+    CreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +36,7 @@ import { ROUTES } from './app.route';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSnackBarModule,
     AngularFontAwesomeModule,
     MatTableModule,
     HttpClientModule,
@@ -47,7 +47,7 @@ import { ROUTES } from './app.route';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ SistemaService ],
+  providers: [ {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

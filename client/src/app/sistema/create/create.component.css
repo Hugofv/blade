@@ -7,8 +7,13 @@
 }
 
 .title-card {
-  background-color: #c9c9c9;
+  background-color: #3C8DC5;
   height: 3em;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box {
